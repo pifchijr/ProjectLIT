@@ -17,7 +17,7 @@ tfidf_matrix = vectorizer.fit_transform(books)
 
 # Функция для получения рекомендаций
 def recommend_books(book_idx, tfidf_matrix, books, top_n=3):
-    # Вычисление косинусного сходства между книгами
+    # Вычисление сходства между книгами
     cosine_sim = cosine_similarity(tfidf_matrix[book_idx], tfidf_matrix)
     # Получаем индексы наиболее похожих книг
     similar_books_idx = cosine_sim.argsort()[0][-top_n-1:-1][::-1]
